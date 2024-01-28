@@ -48,3 +48,6 @@ USER duser
 
 # Executa o arquivo scripts/commands.sh
 CMD ["commands.sh"]
+
+# Lembrar de remover a pasta data para fazer o build do zero
+# Ou se estiver dando problema com a criação da base de dados postgres
