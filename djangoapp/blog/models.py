@@ -89,9 +89,7 @@ class Page(models.Model):
 
 class PostManager(models.Manager):
     def get_published(self):
-        return self\
-            .filter(is_published=True)\
-            .order_by('-pk')
+        return self.filter(is_published=True).order_by('-pk')
 
 class Post(models.Model):
     class Meta:
@@ -143,7 +141,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     def get_absolute_url(self):
         if not self.is_published:
             return reverse('blog:index')
@@ -152,7 +150,7 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify_new(self.title, 4)
-        
+
         current_cover_name = str(self.cover.name)
         super_save = super().save(*args, **kwargs)
         cover_changed = False
