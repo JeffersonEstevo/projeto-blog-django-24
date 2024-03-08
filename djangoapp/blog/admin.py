@@ -1,6 +1,6 @@
 from blog.models import Category, Page, Post, Tag
 from django.contrib import admin
-from django_summernote.admin import SummernoteModelAdmin
+
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
@@ -27,8 +27,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 @admin.register(Page)
-class PageAdmin(SummernoteModelAdmin):
-    summernote_fields = ('content',)
+class PageAdmin(admin.ModelAdmin):
     list_display = 'id', 'title', 'is_published',
     list_display_links = 'title',
     search_fields = 'id', 'slug', 'title', 'content',
@@ -40,9 +39,9 @@ class PageAdmin(SummernoteModelAdmin):
         "slug": ('title',),
     }
 
+
 @admin.register(Post)
-class PostAdmin(SummernoteModelAdmin):
-    summernote_fields = ('content',)
+class PostAdmin(admin.ModelAdmin):
     list_display = 'id', 'title', 'is_published',  'created_by',
     list_display_links = 'title',
     search_fields = 'id', 'slug', 'title', 'excerpt', 'content',
@@ -63,4 +62,3 @@ class PostAdmin(SummernoteModelAdmin):
             obj.created_by = request.user  # type: ignore
 
         obj.save()
-        
