@@ -108,7 +108,6 @@ def page(request, slug):
         }
     )
 
-
 def post(request, slug):
     post = (
         Post.objects.get_published()
