@@ -5,6 +5,21 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 from django.http import Http404 
 
+# Function Based Views -> São fuções que tratam a lógica 
+    # (coisas mais simples como apenas renderizar, por exemplo)
+# Class Based Views -> São Classes (POO)
+    # (coisas mais complexas e que necessitam de manipulação e tratamento de dados)
+
+# Coisas que utilizam Class Based Views
+# Obter dados do model
+# Esses dados são uma lista de objetos
+# Paginação
+# Renderizando um template
+# Manipulando o contexto
+
+# Documentação de Class Based Views do Django
+    # https://docs.djangoproject.com/pt-br/4.2/ref/class-based-views/
+
 PER_PAGE = 9
 
 def index(request):
